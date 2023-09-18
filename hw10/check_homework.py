@@ -8,7 +8,7 @@
 from collections import UserDict
 import unittest
 
-import main
+import practice10.bingo as bingo
 
 
 RED = "\033[91m"
@@ -66,21 +66,21 @@ class TestHomeWork10(unittest.TestCase):
         """
         1. Класс Field в коді оголошено
         """
-        assert hasattr(main, "Field"), """1. Класс Field в коді не оголошено!"""
+        assert hasattr(bingo, "Field"), """1. Класс Field в коді не оголошено!"""
 
     def test_002(self):
         """
         2. Класс Name в коді оголошено
         """
-        assert hasattr(main, "Name"), """2. Класс Name в коді не оголошено!"""
+        assert hasattr(bingo, "Name"), """2. Класс Name в коді не оголошено!"""
 
     def test_003(self):
         """
         3. Класс Name наслідується від класу Field в коді
         """
-        if hasattr(main, "Name"):
+        if hasattr(bingo, "Name"):
             assert (
-                main.Name.__base__ == main.Field
+                bingo.Name.__base__ == bingo.Field
             ), """3. Класс Name не наслідується від класу Field в коді"""
         else:
             raise AssertionError(
@@ -91,15 +91,15 @@ class TestHomeWork10(unittest.TestCase):
         """
         4. Класс Phone в коді оголошено
         """
-        assert hasattr(main, "Phone"), """4. Класс Phone в коді не оголошено!"""
+        assert hasattr(bingo, "Phone"), """4. Класс Phone в коді не оголошено!"""
 
     def test_005(self):
         """
         5. Класс Phone наслідується від класу Field в коді
         """
-        if hasattr(main, "Phone"):
+        if hasattr(bingo, "Phone"):
             assert (
-                main.Phone.__base__ == main.Field
+                bingo.Phone.__base__ == bingo.Field
             ), """5. Класс Phone не наслідується від класу Field в коді"""
         else:
             raise AssertionError(
@@ -111,8 +111,8 @@ class TestHomeWork10(unittest.TestCase):
         6. Класс Phone зберігає валідний телефон "0504567890" в атрибуті value
         """
         msg = """6. Класс Phone не зберігає валідний телефон 0504567890 в атрибуті value"""
-        if hasattr(main, "Phone"):
-            phone = main.Phone("0504567890")
+        if hasattr(bingo, "Phone"):
+            phone = bingo.Phone("0504567890")
             assert hasattr(phone, "value"), msg
             assert phone.value == "0504567890", msg
         else:
@@ -123,9 +123,9 @@ class TestHomeWork10(unittest.TestCase):
         7. Класс Phone не зберігає не валідний телефон "12345abcde" в атрибуті value та викидає виключення ValueError
         """
         msg = """7. Класс Phone зберігає не валідний телефон 12345abcde в атрибуті value та не викидає виключення ValueError"""
-        if hasattr(main, "Phone"):
+        if hasattr(bingo, "Phone"):
             try:
-                main.Phone("12345abcde")
+                bingo.Phone("12345abcde")
                 assert False, msg
             except ValueError:
                 pass
@@ -139,9 +139,9 @@ class TestHomeWork10(unittest.TestCase):
         8. Класс Phone не зберігає не валідний телефон "050456789" в атрибуті value та викидає виключення ValueError
         """
         msg = """8. Класс Phone зберігає не валідний телефон 050456789 в атрибуті value та не викидає виключення ValueError"""
-        if hasattr(main, "Phone"):
+        if hasattr(bingo, "Phone"):
             try:
-                main.Phone("050456789")
+                bingo.Phone("050456789")
                 assert False, msg
             except ValueError:
                 pass
@@ -155,9 +155,9 @@ class TestHomeWork10(unittest.TestCase):
         9. Класс Phone не зберігає не валідний телефон "05045678901" в атрибуті value та викидає виключення ValueError
         """
         msg = """9. Класс Phone зберігає не валідний телефон 05045678901 в атрибуті value та не викидає виключення ValueError"""
-        if hasattr(main, "Phone"):
+        if hasattr(bingo, "Phone"):
             try:
-                main.Phone("05045678901")
+                bingo.Phone("05045678901")
                 assert False, msg
             except ValueError:
                 pass
@@ -170,15 +170,15 @@ class TestHomeWork10(unittest.TestCase):
         """
         10. Класс Record в коді оголошено
         """
-        assert hasattr(main, "Record"), """10. Класс Record в коді не оголошено!"""
+        assert hasattr(bingo, "Record"), """10. Класс Record в коді не оголошено!"""
 
     def test_011(self):
         """
         11. Класс Record має метод add_phone
         """
         msg = """11. Класс Record не має метод add_phone!"""
-        if hasattr(main, "Record"):
-            assert "add_phone" in dir(main.Record), msg
+        if hasattr(bingo, "Record"):
+            assert "add_phone" in dir(bingo.Record), msg
         else:
             raise AssertionError(msg)
 
@@ -187,8 +187,8 @@ class TestHomeWork10(unittest.TestCase):
         12. Класс Record має метод remove_phone
         """
         msg = """12. Класс Record не має метод remove_phone!"""
-        if hasattr(main, "Record"):
-            assert "remove_phone" in dir(main.Record), msg
+        if hasattr(bingo, "Record"):
+            assert "remove_phone" in dir(bingo.Record), msg
         else:
             raise AssertionError(msg)
 
@@ -197,8 +197,8 @@ class TestHomeWork10(unittest.TestCase):
         13. Класс Record має метод edit_phone
         """
         msg = """13. Класс Record не має метод edit_phone!"""
-        if hasattr(main, "Record"):
-            assert "edit_phone" in dir(main.Record), msg
+        if hasattr(bingo, "Record"):
+            assert "edit_phone" in dir(bingo.Record), msg
         else:
             raise AssertionError(msg)
 
@@ -207,8 +207,8 @@ class TestHomeWork10(unittest.TestCase):
         14. Класс Record має метод find_phone
         """
         msg = """14. Класс Record не має метод find_phone!"""
-        if hasattr(main, "Record"):
-            assert "find_phone" in dir(main.Record), msg
+        if hasattr(bingo, "Record"):
+            assert "find_phone" in dir(bingo.Record), msg
         else:
             raise AssertionError(msg)
 
@@ -217,7 +217,7 @@ class TestHomeWork10(unittest.TestCase):
         15. Класс AddressBook в коді оголошено
         """
         assert hasattr(
-            main, "AddressBook"
+            bingo, "AddressBook"
         ), """15. Класс AddressBook в коді не оголошено!"""
 
     def test_016(self):
@@ -225,8 +225,8 @@ class TestHomeWork10(unittest.TestCase):
         16. Класс AddressBook наслідується від класу UserDict в коді
         """
         msg = """16. Класс AddressBook не наслідується від класу UserDict в коді"""
-        if hasattr(main, "AddressBook"):
-            assert main.AddressBook.__base__ == UserDict, msg
+        if hasattr(bingo, "AddressBook"):
+            assert bingo.AddressBook.__base__ == UserDict, msg
         else:
             raise AssertionError(msg)
 
@@ -235,8 +235,8 @@ class TestHomeWork10(unittest.TestCase):
         17. Класс AddressBook має метод add_record
         """
         msg = """17. Класс AddressBook не має метод add_record!"""
-        if hasattr(main, "AddressBook"):
-            assert "add_record" in dir(main.AddressBook), msg
+        if hasattr(bingo, "AddressBook"):
+            assert "add_record" in dir(bingo.AddressBook), msg
         else:
             raise AssertionError(msg)
 
@@ -245,8 +245,8 @@ class TestHomeWork10(unittest.TestCase):
         18. Класс AddressBook має метод find
         """
         msg = """18. Класс AddressBook не має метод find!"""
-        if hasattr(main, "AddressBook"):
-            assert "find" in dir(main.AddressBook), msg
+        if hasattr(bingo, "AddressBook"):
+            assert "find" in dir(bingo.AddressBook), msg
         else:
             raise AssertionError(msg)
 
@@ -255,8 +255,8 @@ class TestHomeWork10(unittest.TestCase):
         19. Класс AddressBook має метод delete
         """
         msg = """19. Класс AddressBook не має метод delete!"""
-        if hasattr(main, "AddressBook"):
-            assert "delete" in dir(main.AddressBook), msg
+        if hasattr(bingo, "AddressBook"):
+            assert "delete" in dir(bingo.AddressBook), msg
         else:
             raise AssertionError(msg)
 
@@ -277,12 +277,12 @@ class TestHomeWorking10(unittest.TestCase):
     def setUp(self):
         self.book = None
         if (
-            hasattr(main, "AddressBook")
-            and hasattr(main, "Record")
-            and ("add_phone" in dir(main.Record))
+            hasattr(bingo, "AddressBook")
+            and hasattr(bingo, "Record")
+            and ("add_phone" in dir(bingo.Record))
         ):
-            self.book = main.AddressBook()
-            self.john_record = main.Record("John")
+            self.book = bingo.AddressBook()
+            self.john_record = bingo.Record("John")
             self.john_record.add_phone("1234567890")
             self.john_record.add_phone("5555555555")
 
@@ -291,7 +291,7 @@ class TestHomeWorking10(unittest.TestCase):
         1. Перевірка виконання методу add_record класу AddressBook успішна
         """
         msg = """1. Метод add_record класу AddressBook не зберіг запис Record!"""
-        if hasattr(main, "AddressBook") and isinstance(self.book, main.AddressBook):
+        if hasattr(bingo, "AddressBook") and isinstance(self.book, bingo.AddressBook):
             self.book.add_record(self.john_record)
             assert "John" in self.book.data, msg
         else:
@@ -302,7 +302,7 @@ class TestHomeWorking10(unittest.TestCase):
         2. Перевірка виконання методу find класу AddressBook успішна
         """
         msg = """2. Метод find класу AddressBook не повернув запис Record який був збережений!"""
-        if hasattr(main, "AddressBook") and isinstance(self.book, main.AddressBook):
+        if hasattr(bingo, "AddressBook") and isinstance(self.book, bingo.AddressBook):
             self.book.add_record(self.john_record)
             assert self.book.find("John") == self.john_record, msg
         else:
@@ -313,7 +313,7 @@ class TestHomeWorking10(unittest.TestCase):
         3. Перевірка виконання методу find класу AddressBook з записом, що не існує успішна
         """
         msg = """3. Провалена перевірка. Якщо запису не існує то метод find класу AddressBook повинен повернути None!"""
-        if hasattr(main, "AddressBook") and isinstance(self.book, main.AddressBook):
+        if hasattr(bingo, "AddressBook") and isinstance(self.book, bingo.AddressBook):
             self.book.add_record(self.john_record)
             assert self.book.find("Jane") is None, msg
         else:
@@ -324,7 +324,7 @@ class TestHomeWorking10(unittest.TestCase):
         4. Перевірка виконання методу delete класу AddressBook успішна
         """
         msg = """2. Метод delete класу AddressBook не видалив запис Record який був збережений!"""
-        if hasattr(main, "AddressBook") and isinstance(self.book, main.AddressBook):
+        if hasattr(bingo, "AddressBook") and isinstance(self.book, bingo.AddressBook):
             self.book.add_record(self.john_record)
             self.book.delete("John")
             assert self.book.find("John") is None, msg
@@ -336,7 +336,7 @@ class TestHomeWorking10(unittest.TestCase):
         5. Перевірка виконання методу delete класу AddressBook з записом, що не існує успішна
         """
         msg = """3. Провалена перевірка. Метод delete класу AddressBook не видалив запис!"""
-        if hasattr(main, "AddressBook") and isinstance(self.book, main.AddressBook):
+        if hasattr(bingo, "AddressBook") and isinstance(self.book, bingo.AddressBook):
             self.book.add_record(self.john_record)
             self.book.delete("Jane")
             assert self.book.find("Jane") is None, msg
@@ -359,8 +359,8 @@ class TestHomeWorking10_1(unittest.TestCase):
 
     def setUp(self):
         self.record = None
-        if hasattr(main, "Record") and ("add_phone" in dir(main.Record)):
-            self.record = main.Record("John")
+        if hasattr(bingo, "Record") and ("add_phone" in dir(bingo.Record)):
+            self.record = bingo.Record("John")
             self.record.add_phone("1234567890")
             self.record.add_phone("5555555555")
 
@@ -370,9 +370,9 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """1. Метод find_phone класу Record не знайшов перший номер контакту!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("find_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("find_phone" in dir(bingo.Record))
         ):
             try:
                 phone = self.record.find_phone("1234567890")
@@ -388,9 +388,9 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """2. Метод find_phone класу Record не знайшов другий номер контакту!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("find_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("find_phone" in dir(bingo.Record))
         ):
             try:
                 phone = self.record.find_phone("5555555555")
@@ -406,9 +406,9 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """3. Провалена перевірка. Якщо номеру телефона не існує то метод find_phone класу Record повинен повернути None!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("find_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("find_phone" in dir(bingo.Record))
         ):
             phone = self.record.find_phone("1111111111")
             assert phone is None, msg
@@ -421,10 +421,10 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """4. Метод edit_phone класу Record не відреагував номер телефону, що існує!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("edit_phone" in dir(main.Record))
-            and ("find_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("edit_phone" in dir(bingo.Record))
+            and ("find_phone" in dir(bingo.Record))
         ):
             self.record.edit_phone("1234567890", "4444444444")
             try:
@@ -441,9 +441,9 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """5. Провалена перевірка. Якщо номеру телефону не існує то метод edit_phone класу Record повинен викинути виключення ValueError!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("edit_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("edit_phone" in dir(bingo.Record))
         ):
             try:
                 self.record.edit_phone("1111111111", "4444444444")
@@ -461,10 +461,10 @@ class TestHomeWorking10_1(unittest.TestCase):
         """
         msg = """6. Провалена перевірка. Метод remove_phone класу Record не видаляє номер телефону!"""
         if (
-            hasattr(main, "Record")
-            and isinstance(self.record, main.Record)
-            and ("remove_phone" in dir(main.Record))
-            and ("find_phone" in dir(main.Record))
+            hasattr(bingo, "Record")
+            and isinstance(self.record, bingo.Record)
+            and ("remove_phone" in dir(bingo.Record))
+            and ("find_phone" in dir(bingo.Record))
         ):
             self.record.remove_phone("1234567890")
             phone = self.record.find_phone("1234567890")
