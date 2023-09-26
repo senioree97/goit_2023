@@ -243,7 +243,6 @@ def main():
 if __name__ == "__main__":
     book = AddressBook()
     
-
     p1 = Record("Anton")
     p2 = Record("Gennadiy")
 
@@ -266,11 +265,11 @@ if __name__ == "__main__":
     book.add_record(p4)
 
 
-
-
     for page_number, chunks in enumerate(book.iterator(N=2), start=1):
         print(f"Page {page_number}\n")
         for record in chunks:
             print(record)
+
+    # main()
 
     
