@@ -4,12 +4,16 @@ from Bot import Bot
 
 Bot = Bot()
 
-known_commands = ("add", "change", "phone", "show", "hello", "help", "save", "load", "search")
+known_commands = ("add", "change", "phone", "show", "hello", "help", "save", "load", "search", "birthday")
 exit_commands = ("goodbye", "close", "exit", ".")
 commands = known_commands + exit_commands
 
 def main():
-    Bot.load("auto_save")
+    try:
+        Bot.load("auto_save")
+    except FileNotFoundError:
+        ...
+
     while True:
         input_text = input("⬇ Type your command below! help for commands ⬇ \n")
         input_command = (input_text.split()[0].lower())
